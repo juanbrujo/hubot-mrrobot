@@ -1,0 +1,30 @@
+{
+  "name": "hubot-mrrobot",
+  "version": "0.0.1",
+  "description": "Countdown until next Mr. Robot episode",
+  "main": "mr-robot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanbrujo/hubot-mrrobot.git"
+  },
+  "keywords": [
+    "hubot",
+    "mr. robot",
+    "countdown"
+  ],
+  "author": "@juanbrujo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juanbrujo/hubot-mrrobot/issues"
+  },
+  "homepage": "https://github.com/juanbrujo/hubot-mrrobot#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "moment": "^2.13.0",
+    "moment-countdown": "0.0.3",
+    "string": "^3.3.1"
+  }
+}
