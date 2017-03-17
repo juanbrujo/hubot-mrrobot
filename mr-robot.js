@@ -23,14 +23,21 @@ module.exports = function(robot) {
 
     msg.robot.http(url).get()(function(err, res, body) {
       var $ = cheerio.load(body);
+
       if (res.statusCode !== 200 || body === 'ERROR') {
         return msg.reply('ERROR. Try again.');
       }
-      var cleanTitle  = S( $('.site-tv-show .row.text-center h3.text-size-25.margin-bottom-15').text() ).stripTags().s;
-      var cleanNext   = S( $('#countdownTime').next().find('a').text() ).stripTags().s;
-      var nextEpisode  = $('#countdownTime').attr('data-date');
+      
+      var unknown       = S( $('.ui.container .status').text().replace(' - ', '').replace(' - ', '') );
+      var cleanTitle    = S( $('.ui.container .title').text() ).stripTags().s;
+      var cleanNext     = S( $('#countdownTime').next().find('a').text() ).stripTags().s;
+      var nextEpisode   = $('#countdownTime').attr('data-date');
 
-      msg.send( cleanTitle + ': ' + moment(nextEpisode,'MMMM Do YYYY, h:mm:ss a').countdown().toString() + '.\n' +  cleanNext);
+      if( unknown == 'unknown') {
+        msg.send('Sin fecha aún.');
+      } else {
+        msg.send( unknown + cleanTitle + ': ' + moment(nextEpisode,'MMMM Do YYYY, h:mm:ss a').countdown().toString() + '.\n' +  cleanNext);
+      }
 
     });
 

@@ -1,11 +1,8 @@
 {
   "name": "hubot-mrrobot",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Countdown until next Mr. Robot episode",
   "main": "mr-robot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/juanbrujo/hubot-mrrobot.git"
