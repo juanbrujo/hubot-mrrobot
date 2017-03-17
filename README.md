@@ -2,6 +2,9 @@
 
 **Countdown until next Mr. Robot episode.**
 
+[![npm version](https://badge.fury.io/js/hubot-mrrobot.svg)](https://badge.fury.io/js/hubot-mrrobot)
+![](https://i.imgur.com/5iQih8N.png)
+
 ### Install:
 
 ````
