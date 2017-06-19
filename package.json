@@ -1,6 +1,6 @@
 {
   "name": "hubot-mrrobot",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Countdown until next Mr. Robot episode",
   "main": "mr-robot.js",
   "repository": {
