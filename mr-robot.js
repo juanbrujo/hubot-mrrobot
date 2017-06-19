@@ -17,7 +17,7 @@ var moment  = require('moment');
 var countdown  = require('moment-countdown');
 
 module.exports = function(robot) {
-  robot.respond(/mrrobot/i, function(msg) {
+  robot.respond(/mr/i, function(msg) {
 
     var url = 'https://www.episodate.com/tv-show/mr-robot';
 
@@ -29,17 +29,18 @@ module.exports = function(robot) {
       }
       
       var unknown       = S( $('.ui.container .status').text().replace(' - ', '').replace(' - ', '') );
-      var cleanTitle    = S( $('.ui.container .title').text() ).stripTags().s;
+      var cleanTitle    = S( $('.countdown-text h2').text() ).stripTags().s;
       var cleanNext     = S( $('#countdownTime').next().find('a').text() ).stripTags().s;
       var nextEpisode   = $('#countdownTime').attr('data-date');
 
       if( unknown == 'unknown') {
         msg.send('Sin fecha aún.');
       } else {
-        msg.send( unknown + cleanTitle + ': ' + moment(nextEpisode,'MMMM Do YYYY, h:mm:ss a').countdown().toString() + '.\n' +  cleanNext);
+        msg.send( cleanTitle + ': ' + moment(nextEpisode,'MMMM Do YYYY, h:mm:ss a').countdown().toString() + '.\n' +  cleanNext);
       }
 
     });
 
   });
+
 };
