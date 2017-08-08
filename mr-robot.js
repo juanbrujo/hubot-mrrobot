@@ -30,13 +30,12 @@ module.exports = function(robot) {
       
       var unknown       = S( $('.ui.container .status').text().replace(' - ', '').replace(' - ', '') );
       var cleanTitle    = S( $('.countdown-text h2').text() ).stripTags().s;
-      var cleanNext     = S( $('#countdownTime').next().find('a').text() ).stripTags().s;
       var nextEpisode   = $('#countdownTime').attr('data-date');
 
-      if( unknown == 'unknown') {
-        msg.send('Sin fecha aún.');
+      if ( unknown == 'unknown') {
+        msg.send('Unknown date.');
       } else {
-        msg.send( cleanTitle + ': ' + moment(nextEpisode,'MMMM Do YYYY, h:mm:ss a').countdown().toString() + '.\n' +  cleanNext);
+        msg.send( cleanTitle + ': ' + moment().countdown(nextEpisode,'MMMM Do YYYY, h:mm:ss a').toString() + ' (' + nextEpisode + ')');
       }
 
     });
